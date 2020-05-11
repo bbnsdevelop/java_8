@@ -17,6 +17,15 @@ public class MainValorNumerico {
 		nome = (n) -> String.valueOf(n);;
 		
 		System.out.println(nome.teste(1));
+		
+		
+		isPar = (n) -> (getNovoNumero() % 2) == 0;
+		
+		System.out.println(isPar.teste(1));
+	}
+	
+	public static int getNovoNumero() {
+		return 2;
 	}
 
 }
