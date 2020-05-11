@@ -1,4 +1,4 @@
-package br.com;
+package br.com.interfaces;
 
 public interface Num {
 	

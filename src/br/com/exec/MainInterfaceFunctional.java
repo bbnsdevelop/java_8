@@ -1,4 +1,6 @@
-package br.com;
+package br.com.exec;
+
+import br.com.interfaces.Num;
 
 public class MainInterfaceFunctional {
 

@@ -1,4 +1,7 @@
-package br.com;
+package br.com.exec;
+
+import br.com.interfaces.ValorNumerico;
+import br.com.interfaces.ValorString;
 
 public class MainValorNumerico {
 
