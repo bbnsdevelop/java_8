@@ -15,6 +15,12 @@ public class MainInterfaceFunctional {
 		
 		System.out.println(n.getValor());
 		
+		
+		Num n2 = () -> Math.random() * 100;
+		
+		System.out.println(n2.getValor());
+		System.out.println(n2.getValor());
+		
 	}
 
 }
