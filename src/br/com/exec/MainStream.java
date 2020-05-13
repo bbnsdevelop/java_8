@@ -2,7 +2,6 @@ package br.com.exec;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -18,7 +17,6 @@ public class MainStream {
 		System.out.println(novaLista);
 
 		filtro(estados, (s) -> s.startsWith("S"));
-
 		// condição já é falsa
 		filtro(estados, (s) -> false);
 		// condição já é verdadeira
@@ -34,16 +32,22 @@ public class MainStream {
 	}
 
 	public static void filtro(List<String> lista, Predicate<String> condicao) {
-		for (String s : lista)
-			if (condicao.test(s))
-				System.out.println(s);
+		lista.forEach(e -> {
+			if (condicao.test(e))
+				System.out.println(e);
+		});
 	}
 
 	public static List<String> filtroWithReturn(List<String> lista, Predicate<String> condicao) {
 		List<String> newList = new ArrayList<>();
-		for (String s : lista)
-			if (condicao.test(s))
-				newList.add(s);
+		/* varias maneiras de fazer 
+		lista.forEach(e -> {
+			if (condicao.test(e))
+				newList.add(e);
+		});
+		*/
+		
+		lista.stream().filter(condicao::test).forEach(newList::add);
 		return newList;
 	}
 
@@ -63,9 +67,10 @@ public class MainStream {
 				.collect(Collectors.toCollection(LinkedList::new));
 		System.out.println(list);
 	}
-	
+
 	public static void filterStreamReturnObjeto(List<String> listaEstados, String estado) {
-		String es = listaEstados.stream().filter(e -> e.equalsIgnoreCase(estado)).findFirst().orElse("Estado Não encontrado");
+		String es = listaEstados.stream().filter(e -> e.equalsIgnoreCase(estado)).findFirst()
+				.orElse("Estado Não encontrado");
 		System.out.println(es);
 	}
 
